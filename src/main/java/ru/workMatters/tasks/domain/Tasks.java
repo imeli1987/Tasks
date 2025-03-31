@@ -7,10 +7,10 @@ public class Tasks{
     private long id;
     private String name;
     private String description;
-    private String status;
+    private boolean status;
     private String date;
 
-    public Tasks(String name, String description, String status, String date){
+    public Tasks(String name, String description, boolean status, String date){
         this.name = name;
         this.description = description;
         this.status = status;
@@ -64,11 +64,11 @@ public class Tasks{
         this.description = description;
     }
 
-    public String getStatus(){
+    public boolean getStatus(){
         return status;
     }
 
-    public void setStatus( String status ){
+    public void setStatus( boolean status ){
         this.status = status;
     }
 

@@ -8,7 +8,7 @@ import ru.workMatters.tasks.service.TasksService;
 import java.util.Collection;
 
 @RestController
-@RequestMapping("tasks")
+@RequestMapping("/tasks")
 public class TasksController{
 
     private final TasksService tasksService;
@@ -26,12 +26,12 @@ public class TasksController{
         return ResponseEntity.ok( task );
     }
 
-    @GetMapping
+    @PostMapping
     public Tasks createTask(@RequestBody Tasks task){
         return tasksService.createTask( task );
     }
 
-    @GetMapping
+    @PutMapping
     public ResponseEntity<Tasks> updateTask(@RequestBody Tasks task){
         Tasks foundTasks = tasksService.updateTask( task );
         if( foundTasks == null ){
@@ -40,7 +40,7 @@ public class TasksController{
         return ResponseEntity.ok( foundTasks );
     }
 
-    @GetMapping("{id}")
+    @DeleteMapping("{id}")
     public Tasks deleteTask(@PathVariable long id){
         return tasksService.deleteTaskById( id );
     }
